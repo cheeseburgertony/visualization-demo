@@ -13,9 +13,8 @@ import { getVisualizationAPI } from './apis/visualization'
 const visualizationData = ref()
 const getData = async () => {
   const res = await getVisualizationAPI()
-  console.log(res.data)
+  // console.log(res.data)
   visualizationData.value = res.data
-  console.log(visualizationData.value.regionData);
 }
 getData()
 
@@ -47,7 +46,7 @@ setInterval(() => {
     <!-- 右侧部分 -->
     <div class="flex-1 bg-opacity-50 bg-slate-800 p-3 flex flex-col">
       <!-- 竖向柱状图 -->
-      <VerticalBar class="h-1/3 box-border pb-4"></VerticalBar>
+      <VerticalBar class="h-1/3 box-border pb-4" :visualData="visualizationData.serverData"></VerticalBar>
       <!-- 环形图（饼图） -->
       <RingBar class="h-1/3 box-border pb-4"></RingBar>
       <!-- 文档词云图 -->

@@ -7,7 +7,7 @@ const props = defineProps({
     required: true
   }
 })
-console.log(props.visualData)
+// console.log(props.visualData)
 
 // 1.初始化echarts实例
 const target = ref()
