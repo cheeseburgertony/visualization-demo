@@ -11,7 +11,7 @@ const props = defineProps({
 
 const target = ref()
 let myCharts
-console.log(props.visualData)
+// console.log(props.visualData)
 onMounted(() => {
   myCharts = echarts.init(target.value)
   renderChart()

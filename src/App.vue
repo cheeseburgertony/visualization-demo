@@ -32,7 +32,7 @@ setInterval(() => {
       <!-- 横向柱状图 -->
       <HorizontalBar class="h-1/3 box-border pb-4" :visualData="visualizationData.regionData"></HorizontalBar>
       <!-- 雷达图 -->
-      <RadarBar class="h-1/3 box-border pb-4"></RadarBar>
+      <RadarBar class="h-1/3 box-border pb-4" :visualData="visualizationData.riskData"></RadarBar>
       <!-- 数据关系图 -->
       <Relation class="h-1/3"></Relation>
     </div>
