@@ -1,4 +1,5 @@
 <script setup>
+import { onMounted, ref } from 'vue'
 import HorizontalBar from './components/HorizontalBar.vue'
 import MapChart from './components/MapChart.vue'
 import RadarBar from './components/RadarBar.vue'
@@ -7,6 +8,19 @@ import RingBar from './components/RingBar.vue'
 import TotalData from './components/TotalData.vue'
 import VerticalBar from './components/VerticalBar.vue'
 import WordCloud from './components/WordCloud.vue'
+import { getVisualizationAPI } from './apis/visualization'
+
+const visualizationData = ref({})
+const getData = async () => {
+  const res = await getVisualizationAPI()
+  console.log(res)
+  visualizationData.value = res.data
+}
+onMounted(() => getData())
+
+setInterval(() => {
+  getData()
+}, 5000)
 </script>
 
 <template>
