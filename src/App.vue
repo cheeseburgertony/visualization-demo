@@ -10,25 +10,28 @@ import VerticalBar from './components/VerticalBar.vue'
 import WordCloud from './components/WordCloud.vue'
 import { getVisualizationAPI } from './apis/visualization'
 
-const visualizationData = ref({})
+const visualizationData = ref()
 const getData = async () => {
   const res = await getVisualizationAPI()
-  console.log(res)
+  console.log(res.data)
   visualizationData.value = res.data
+  console.log(visualizationData.value.regionData);
 }
-onMounted(() => getData())
+getData()
+
 
 setInterval(() => {
   getData()
-}, 5000)
+}, 3000)
 </script>
 
 <template>
-  <div class="bg-[url('assets/imgs/bg.jpg')] bg-cover bg-center h-screen text-white p-5 flex overflow-hidden">
+  <div class="bg-[url('assets/imgs/bg.jpg')] bg-cover bg-center h-screen text-white p-5 flex overflow-hidden"
+    v-if="visualizationData">
     <!-- 左侧部分 -->
     <div class="flex-1 mr-5 bg-opacity-50 bg-slate-800 p-3 flex flex-col">
       <!-- 横向柱状图 -->
-      <HorizontalBar class="h-1/3 box-border pb-4"></HorizontalBar>
+      <HorizontalBar class="h-1/3 box-border pb-4" :visualData="visualizationData.regionData"></HorizontalBar>
       <!-- 雷达图 -->
       <RadarBar class="h-1/3 box-border pb-4"></RadarBar>
       <!-- 数据关系图 -->
