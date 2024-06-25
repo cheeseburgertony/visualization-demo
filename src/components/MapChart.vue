@@ -114,8 +114,10 @@ const renderChart = () => {
           text: '2019-2023年度数据',
           left: '0%',
           top: '0%',
-          color: '#ccc',
-          fontSize: 30
+          textStyle: {
+            color: '#ccc',
+            fontSize: 30
+          }
         },
         {
           // 小标题
@@ -123,8 +125,10 @@ const renderChart = () => {
           text: item + '年数据统计情况',
           right: '0%',
           top: '4%',
-          color: '#ccc',
-          fontSize: 20
+          textStyle: {
+            color: '#ccc',
+            fontSize: 20
+          }
         }
       ],
       xAxis: {
@@ -170,6 +174,28 @@ const renderChart = () => {
             color: props.visualData.colors[index]
           },
           data: props.visualData.categoryData[item].map(item => item.value)
+        },
+        {
+          // 散点图
+          type: 'effectScatter',
+          coordinateSystem: 'geo',
+          data: props.visualData.topData[item],
+          symbolSize: (val) => val[2] / 4,  // 设置散点大小
+          showEffectOn: 'render', // 添加特效
+          rippleEffect: {
+            brushType: 'stroke' // 水花效果
+          },
+          label: {
+            formatter: '{b}',
+            position: 'right',
+            show: true
+          },
+          itemStyle: {
+            // 保持和柱状图颜色一致
+            color: props.visualData.colors[index],
+            shadowBlur: 5,  // 阴影
+            shadowColor: props.visualData.colors[index]
+          }
         }
       ]
     })
