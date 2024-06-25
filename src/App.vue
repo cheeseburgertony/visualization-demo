@@ -13,7 +13,7 @@ import { getVisualizationAPI } from './apis/visualization'
 const visualizationData = ref()
 const getData = async () => {
   const res = await getVisualizationAPI()
-  // console.log(res.data)
+  console.log(res.data)
   visualizationData.value = res.data
 }
 getData()
@@ -50,7 +50,7 @@ setInterval(() => {
       <!-- 环形图（饼图） -->
       <RingBar class="h-1/3 box-border pb-4" :visualData="visualizationData.abnormalData"></RingBar>
       <!-- 文档词云图 -->
-      <WordCloud class="h-1/3"></WordCloud>
+      <WordCloud class="h-1/3" :visualData="visualizationData.wordCloudData"></WordCloud>
     </div>
   </div>
 

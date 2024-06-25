@@ -35,21 +35,15 @@ const renderChart = () => {
         symbolSize: 26,  // 节点大小
         z: 3,
         edgeLabel: {
-          normal: {
-            show: true,
-            color: '#fff',
-            textStyle: {
-              fontSize: 14
-            },
-            formatter: (params) => params.data.speed
-          }
+          show: true,
+          color: '#fff',
+          fontSize: 14,
+          formatter: (params) => params.data.speed
         },
         label: {
-          normal: {
-            show: true,
-            position: 'bottom',
-            color: '#5E5E5E'
-          }
+          show: true,
+          position: 'bottom',
+          color: '#5E5E5E'
         },
         edgeSymbol: ['none', 'arrow'], // 箭头
         edgeSymbolSize: 8,
@@ -70,25 +64,21 @@ const renderChart = () => {
               value: item.value,
               symbolSize: 100,
               itemStyle: {
-                normal: {
-                  color: {  // 渐变色
-                    colorStops: [
-                      {
-                        offset: 0,
-                        color: '#157eff'
-                      },
-                      {
-                        offset: 1,
-                        color: '#35c2ff'
-                      }
-                    ]
-                  }
+                color: {  // 渐变色
+                  colorStops: [
+                    {
+                      offset: 0,
+                      color: '#157eff'
+                    },
+                    {
+                      offset: 1,
+                      color: '#35c2ff'
+                    }
+                  ]
                 }
               },
               label: {
-                normal: {
-                  fontSize: '14'
-                }
+                fontSize: '14'
               }
             }
           }
@@ -99,10 +89,8 @@ const renderChart = () => {
           target: item.target,
           speed: `${item.speed}kb/s`,
           lineStyle: {
-            normal: {
-              color: '#12b5d0',
-              curveness: 0.2
-            }
+            color: '#12b5d0',
+            curveness: 0.2
           },
           label: {
             show: true,
@@ -125,15 +113,13 @@ const renderChart = () => {
           symbolSize: 12
         },
         lineStyle: {
-          normal: {
-            curveness: 0.2
-          }
+          curveness: 0.2
         },
         data: [ // 线数据集
           [{ coord: [0, 300] }, { coord: [50, 200] }],  //  [起点, 终点]
           [{ coord: [0, 100] }, { coord: [50, 200] }],
           [{ coord: [50, 200] }, { coord: [100, 100] }],
-          [{ coord: [50, 200] }, { coord: [100, 300] }],
+          [{ coord: [50, 200] }, { coord: [100, 300] }]
         ]
       }
     ]

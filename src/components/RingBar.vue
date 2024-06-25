@@ -1,5 +1,5 @@
 <script setup>
-import { TrackOpTypes, onMounted, ref, watch } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 import * as echarts from 'echarts'
 
 const props = defineProps({
