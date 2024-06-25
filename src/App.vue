@@ -48,7 +48,7 @@ setInterval(() => {
       <!-- 竖向柱状图 -->
       <VerticalBar class="h-1/3 box-border pb-4" :visualData="visualizationData.serverData"></VerticalBar>
       <!-- 环形图（饼图） -->
-      <RingBar class="h-1/3 box-border pb-4"></RingBar>
+      <RingBar class="h-1/3 box-border pb-4" :visualData="visualizationData.abnormalData"></RingBar>
       <!-- 文档词云图 -->
       <WordCloud class="h-1/3"></WordCloud>
     </div>
