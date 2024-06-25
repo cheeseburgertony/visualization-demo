@@ -9,7 +9,7 @@ const props = defineProps({
   }
 })
 
-console.log(props.visualData)
+// console.log(props.visualData)
 const totalCountTarget = ref()
 const city1 = ref()
 const city2 = ref()

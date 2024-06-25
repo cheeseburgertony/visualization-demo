@@ -19,6 +19,7 @@ onMounted(() => {
 
 const renderChart = () => {
   const option = {
+    // 时间线
     timeline: {
       data: props.visualData.voltageLevel,
       axisType: 'category',
@@ -56,8 +57,98 @@ const renderChart = () => {
           borderColor: '#aaa'
         }
       }
-    }
+    },
+    // 柱形图
+    baseOption: {
+      grid:{
+        right: '2%',
+        top: '15%',
+        bottom: '10%',
+        width: '20%',
+      }
+    },
+    options: []
   }
+
+  props.visualData.voltageLevel.forEach((item, index) => {
+    option.options.push({
+      backgroundColor: '#142037',
+      title: [
+        {  // 大标题
+          text: '2019-2023年度数据',
+          left: '0%',
+          top: '0%',
+          textStyle: {
+            color: '#ccc',
+            fontSize: 30
+          }
+        },
+        {
+          // 小标题
+          id: 'statistic',
+          text: item + '年数据统计情况',
+          right: '0%',
+          top: '4%',
+          textStyle: {
+            color: '#ccc',
+            fontSize: 20
+          }
+        }
+      ],
+      xAxis: {
+        type: 'value',
+        scale: true,
+        position: 'top',
+        splitLine: {
+          show: false
+        },
+        axisLine: {
+          show: false
+        },
+        axisTick: {
+          show: false
+        },
+        axisLabel: {
+          margin: 2,
+          textStyle: {
+            color: '#aaa'
+          }
+        }
+      },
+      yAxis: {
+        type: 'category',
+        axisLine: {
+          show: true,
+          lineStyle: {
+            color: '#ddd'
+          }
+        },
+        axisTick: {
+          show: false
+        },
+        axisLabel: {
+          interval: 0,
+          textStyle: {
+            color: '#ddd'
+          }
+        },
+        data: props.visualData.categoryData[item].map(item => item.name)
+      },
+      series: [
+        {
+          type: 'bar',
+          zlevel: 1.5,
+          itemStyle: {
+            normal: {
+              color: props.visualData.colors[index]
+            }
+          },
+          data: props.visualData.categoryData[item].map(item => item.value)
+        }
+      ]
+    })
+  })
+
   myCharts.setOption(option)
 }
 
@@ -68,7 +159,6 @@ watch(() => props.visualData, renderChart)
 
 <template>
   <div>
-    <div>【地图可视化】</div>
     <div ref="target" class="w-full h-full"></div>
   </div>
 </template>
