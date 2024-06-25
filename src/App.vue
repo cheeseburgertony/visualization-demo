@@ -13,7 +13,7 @@ import { getVisualizationAPI } from './apis/visualization'
 const visualizationData = ref()
 const getData = async () => {
   const res = await getVisualizationAPI()
-  console.log(res.data)
+  // console.log(res.data)
   visualizationData.value = res.data
 }
 getData()
@@ -39,7 +39,7 @@ setInterval(() => {
     <!-- 中间部分 -->
     <div class="w-1/2 mr-5 flex flex-col">
       <!-- 数据总览图 -->
-      <TotalData class="bg-opacity-50 bg-slate-800 p-3"></TotalData>
+      <TotalData class="bg-opacity-50 bg-slate-800 p-3" :visualData="visualizationData.totalData"></TotalData>
       <!-- 地图可视化 -->
       <MapChart class="bg-opacity-50 bg-slate-800 p-3 mt-4 flex-1"></MapChart>
     </div>
