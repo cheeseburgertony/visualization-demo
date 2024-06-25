@@ -34,7 +34,7 @@ setInterval(() => {
       <!-- 雷达图 -->
       <RadarBar class="h-1/3 box-border pb-4" :visualData="visualizationData.riskData"></RadarBar>
       <!-- 数据关系图 -->
-      <Relation class="h-1/3"></Relation>
+      <Relation class="h-1/3" :visualData="visualizationData.relationData"></Relation>
     </div>
     <!-- 中间部分 -->
     <div class="w-1/2 mr-5 flex flex-col">

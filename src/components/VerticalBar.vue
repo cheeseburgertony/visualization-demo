@@ -46,7 +46,7 @@ const renderChart = () => {
       })),
       itemStyle: {
         color: '#479AD3',
-        borderRadius: 5,  // 圆角
+        // borderRadius: 5,  // 圆角
         shadowColor: 'egba(0,0,0,0.3)',
         shadowBlur: 5   // 阴影的模糊
       },
