@@ -17,18 +17,6 @@ const city3 = ref()
 const city4 = ref()
 const city5 = ref()
 const city6 = ref()
-/**
- * {
-    "total": "6794739",
-    "hb": "87788",
-    "db": "65446",
-    "hd": "76456",
-    "zn": "42135",
-    "xn": "74564",
-    "xb": "75753"
-}
- */
-
 
 onMounted(() => {
   new CountUp(totalCountTarget.value, props.visualData.total).start()
